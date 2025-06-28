@@ -22,7 +22,7 @@ My implementation successfully handles a variety of format specifiers and all th
 #### 1. Clone the repository:
 
 ```bash
-get https://github.com/MEHDIJAD/42cursus-ft_printf.git
+git clone https://github.com/MEHDIJAD/42cursus-ft_printf.git
 ```
 
 #### 2. Navigate to the project directory:
