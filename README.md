@@ -162,6 +162,33 @@ int main(void)
 cc -Wall -Wextra -Werror main.c -L. -lftprintf -o printf
 ```
 
+### Visualizing the `va_list` Lifecycle
+
+```mermaid
+sequenceDiagram
+    participant main as "main()"
+    participant ft_printf as "ft_printf()"
+    participant va_list as "Argument Stack (va_list)"
+
+    main->>ft_printf: Calls ft_printf("...", arg1, arg2)
+
+    activate ft_printf
+    ft_printf->>va_list: va_start(ap, format)
+    note right of ft_printf: Initializes 'ap' to point to arg1
+
+    loop For each '%'
+        ft_printf->>va_list: va_arg(ap, type)
+        va_list-->>ft_printf: Returns current argument (e.g., arg1)
+        note right of ft_printf: 'ap' now points to the next argument
+    end
+
+    ft_printf->>va_list: va_end(ap)
+    note right of ft_printf: Cleans up the list
+
+    deactivate ft_printf
+    ft_printf-->>main: Returns total character count
+```
+
 
 ## ⚙️ Under the Hood: The Magic of Variadic Functions
 
