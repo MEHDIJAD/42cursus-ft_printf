@@ -162,7 +162,7 @@ int main(void)
 cc -Wall -Wextra -Werror main.c -L. -lftprintf -o printf
 ```
 
-### Visualizing the `va_list` Lifecycle
+### 🔁 Visualizing the `va_list` Lifecycle
 
 ```mermaid
 sequenceDiagram
